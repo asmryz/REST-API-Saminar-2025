@@ -1,0 +1,56 @@
+# Get all continents
+GET http://localhost:8000/api/continents HTTP/1.1
+
+###
+
+# Get all countries
+GET http://localhost:8000/api/countries HTTP/1.1
+
+###
+
+# Get countries by continent code
+GET http://localhost:8000/api/countries/AS HTTP/1.1
+
+###
+
+# Create a new country
+POST http://localhost:8000/api/countries HTTP/1.1
+Content-Type: application/json
+
+{
+    "code": "DL",
+    "name": "Disneyland",
+    "full_name": "Disneyland",
+    "iso3": "DLD",
+    "iso_number": 999,
+    "continent": "NA"
+}
+
+###
+
+# Update country (replace all fields)
+PUT http://localhost:8000/api/countries/DL HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Disneyland Resort",
+  "full_name": "Disneyland Resort California",
+  "iso3": "DLD",
+  "iso_number": 999,
+  "continent": "NA"
+}
+
+###
+
+# Update country (partial update)
+PATCH http://localhost:8000/api/countries/DL HTTP/1.1
+Content-Type: application/json
+
+{
+  "full_name": "Disneyland - The Happiest Place on Earth"
+}
+
+###
+
+# Delete a country
+DELETE http://localhost:8000/api/countries/IL HTTP/1.1
